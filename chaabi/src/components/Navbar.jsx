@@ -8,11 +8,13 @@ const Navbar = () => {
         display: "flex",
         backgroundColor: "brown",
         width: "100%",
-        gap: "60%",
+        gap: "23%",
       }}
     >
       <h1 style={{ marginLeft: "40px" }}>Chaabi Assignment </h1>
+
       <h1>Touch Typing</h1>
+      <h1>Easy Level</h1>
     </div>
   );
 };

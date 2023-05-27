@@ -18,7 +18,7 @@ const Typing = () => {
         >
           <button
             className="button"
-            style={{}}
+            style={{ color: "black" }}
             onClick={() => setStartGame(true)}
           >
             {" "}
@@ -28,7 +28,6 @@ const Typing = () => {
       )}
       <div style={{ width: "70%", margin: "auto" }}>
         {startGame && <TouchTyping />}
-        <br />
 
         {startGame && (
           <button
