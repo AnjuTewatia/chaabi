@@ -1,21 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
+import "./Navbar.css";
 
-const Navbar = () => {
+function NavBar() {
+  const [click, setClick] = useState(false);
+
+  const handleClick = () => setClick(!click);
   return (
-    <div
-      className="Navbar"
-      style={{
-        display: "flex",
-        backgroundColor: "brown",
-        width: "100%",
-        gap: "23%",
-      }}
-    >
-      <h1 style={{ marginLeft: "40px" }}>Chaabi Assignment </h1>
-      <h1>Touch Typing</h1>
-      <h1>Easy Level</h1>
-    </div>
-  );
-};
+    <>
+      <nav className="navbar">
+        <div className="nav-container">
+          <div className="nav-logo">Chaabi Assignment</div>
 
-export default Navbar;
+          <ul className={click ? "nav-menu active" : "nav-menu"}>
+            <li className="nav-item">Touch Typing</li>
+            <li className="nav-item">Easy Level</li>
+          </ul>
+          <div className="nav-icon" onClick={handleClick}>
+            <i className={click ? "fas fa-times" : "fas fa-bars"}></i>
+          </div>
+        </div>
+      </nav>
+    </>
+  );
+}
+
+export default NavBar;

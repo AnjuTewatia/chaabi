@@ -26,7 +26,7 @@ const Typing = () => {
           </button>
         </div>
       )}
-      <div style={{ width: "70%", margin: "auto" }}>
+      <div style={{ width: "100%" }}>
         {startGame && <TouchTyping />}
 
         {startGame && (
@@ -35,6 +35,7 @@ const Typing = () => {
               fontSize: "30px",
               marginBottom: "20px",
               border: "none",
+              backgroundColor: "#fff",
             }}
             onClick={() => window.location.reload()}
           >

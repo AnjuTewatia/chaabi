@@ -21,7 +21,7 @@ const TouchTyping = () => {
   useEffect(() => {
     const gameOver = setTimeout(() => {
       setGameOver(true);
-    }, 60000);
+    }, 300000);
     return () => clearTimeout(gameOver);
   }, [gameOver]);
 
@@ -112,16 +112,15 @@ const TouchTyping = () => {
   }, [gameOver]);
 
   return (
-    <div>
-      <div className=" game">
+    <>
+      <>
         {gameOver ? (
           <div
             className="back"
             style={{
               width: "100%",
-
               height: "380px",
-              paddingTop: "20px",
+              padding: "80px 4px 20px 30px ",
               backgroundRepeat: "no-repeat",
               backgroundSize: "100% 100%",
               backgroundImage: `url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXCPkQ6vjaXugxgS0Jg_utkvqwNIRoCkkQfA&usqp=CAU" )`,
@@ -141,9 +140,19 @@ const TouchTyping = () => {
               >
                 <h4> Total: {total} </h4>
                 <h4> Accuracy: {accuracy}% </h4>
-                <h4> WPM: {correctCount} </h4>
+                <h4> Correct Counts: {correctCount} </h4>
               </div>{" "}
-              <button onClick={handleRestart}> Restart Testing</button>
+              <button
+                style={{
+                  fontSize: "30px",
+                  marginBottom: "20px",
+                  border: "none",
+                }}
+                onClick={handleRestart}
+              >
+                {" "}
+                Restart Testing
+              </button>
             </div>
           </div>
         ) : (
@@ -152,18 +161,18 @@ const TouchTyping = () => {
               className="back"
               style={{
                 width: "100%",
-                height: "420px",
-                paddingTop: "20px",
+                height: "480px",
+                padding: "34px 10px 30px 10px",
                 borderRadius: "5",
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "100% 100%",
-                backgroundImage: `url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQKn7qNdNNiu_VvQb7kmo4LAh5eENezbJ0dA&usqp=CAU" )`,
+                backgroundImage: `url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsftyD2NOsAeo0i0NeHx6dm-XKB1RklaMIPg&usqp=CAU" )`,
               }}
             >
-              <h1>
+              <h1 style={{ color: "white" }}>
                 Type The Characters:
                 <br />
-                <span style={{ color: "blue" }}>{targetChar}</span>
+                <span style={{ color: "black" }}>{targetChar}</span>
               </h1>
               <input
                 type="text"
@@ -174,9 +183,13 @@ const TouchTyping = () => {
                 onKeyUp={handleKeyPress}
               />
 
-              <p>Correct Count: {correctCount}</p>
-              <p>InCorrect Count: {incorrectCount}</p>
-              <p>Time Elasped: {timeElapsed} Seconds</p>
+              <p style={{ color: "white" }}>Correct Count: {correctCount}</p>
+              <p style={{ color: "white" }}>
+                InCorrect Count: {incorrectCount}
+              </p>
+              <p style={{ color: "white" }}>
+                Time Elasped: {timeElapsed} Seconds
+              </p>
 
               <p style={{ color: "red", fontSize: "25px" }}>
                 {" "}
@@ -190,8 +203,8 @@ const TouchTyping = () => {
             </div>
           </div>
         )}
-      </div>
-    </div>
+      </>
+    </>
   );
 };
 
