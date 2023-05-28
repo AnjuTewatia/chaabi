@@ -15,26 +15,6 @@ const TouchTyping = () => {
   const [total, setTotal] = useState(0);
   const [accuracy, setaccuracy] = useState(0);
 
-  useEffect(() => {
-    generateTargetChar();
-  }, []);
-  useEffect(() => {
-    const gameOver = setTimeout(() => {
-      setGameOver(true);
-    }, 300000);
-    return () => clearTimeout(gameOver);
-  }, [gameOver]);
-
-  useEffect(() => {
-    if (!gameOver) {
-      const timer = setInterval(() => {
-        setTimeElapsed((prevTime) => prevTime + 1);
-      }, 1000);
-
-      return () => clearInterval(timer);
-    }
-  }, [gameOver]);
-
   const generateTargetChar = () => {
     const characters = "asdfjkl;";
     const randomIndex1 = Math.floor(Math.random() * characters.length);
@@ -45,6 +25,7 @@ const TouchTyping = () => {
     setTargetChar(pair);
   };
 
+  // key pressed
   const handleKeyPress = (e) => {
     if (e.key === "Space" || e.keyCode === 32) {
       if (targetChar === userInput.trim()) {
@@ -109,6 +90,26 @@ const TouchTyping = () => {
   };
   useEffect(() => {
     accuracyCount();
+  }, [gameOver]);
+
+  useEffect(() => {
+    generateTargetChar();
+  }, []);
+  useEffect(() => {
+    const gameOver = setTimeout(() => {
+      setGameOver(true);
+    }, 300000);
+    return () => clearTimeout(gameOver);
+  }, [gameOver]);
+
+  useEffect(() => {
+    if (!gameOver) {
+      const timer = setInterval(() => {
+        setTimeElapsed((prevTime) => prevTime + 1);
+      }, 1000);
+
+      return () => clearInterval(timer);
+    }
   }, [gameOver]);
 
   return (
